@@ -1,3 +1,4 @@
+import numpy as np
 import collections, copy, itertools
 from nltk.classify import ClassifierI, MultiClassifierI
 from nltk.probability import DictionaryProbDist, MutableProbDist
@@ -73,7 +74,7 @@ class AvgProbClassifier(ClassifierI):
 		avg_probs = {}
 		
 		for label, probs in label_probs.items():
-			avg_probs[label] = float(sum(probs)) / len(probs)
+			avg_probs[label] = np.mean(probs)
 		
 		return DictionaryProbDist(avg_probs)
 
