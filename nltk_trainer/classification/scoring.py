@@ -58,7 +58,7 @@ def avg_masi_distance(multi_classifier, multi_label_feats):
 		mds.append(masi_distance(labels, multi_classifier.classify(feat)))
 	
 	if mds:
-		return float(sum(mds)) / len(mds)
+		return np.mean(mds)
 	else:
 		return 0.0
 
